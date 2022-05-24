@@ -6,7 +6,7 @@ function Book(title, author, pages, read)  {
     this.pages = `${pages} pages`
     this.read = read
    this.info = function() {
-        return (`${title}, ${author}, ${pages}, ${read}`);
+        return (`${title}` + '\r\n' +`${author}` + '\n\r' + `${pages}` + '\n' + `${read}`);
     }
 }
 function addBookToLibrary(t) {
@@ -19,8 +19,8 @@ function displayLibrary(myLibrary) {
                 console.log(b);
                 console.log(myLibrary);
                 console.log(theHobbit.info())
-                let cardDiv = document.createElement("div");
-                
+                let cardDiv = document.createElement('div');
+                cardDiv.classList.add('card');
                  let cardInfo = myLibrary[b];
                cardDiv.textContent = cardInfo.info();
                console.log(cardDiv);

@@ -15,3 +15,7 @@
     grid-area: cardHead;
     background-color: blanchedalmond;
 }
+
+.card {
+    background-color: aliceblue;
+}
