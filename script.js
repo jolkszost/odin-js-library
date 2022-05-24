@@ -21,9 +21,21 @@ function displayLibrary(myLibrary) {
                 console.log(theHobbit.info())
                 let cardDiv = document.createElement('div');
                 cardDiv.classList.add('card');
-                 let cardInfo = myLibrary[b];
-               cardDiv.textContent = cardInfo.info();
+                 let bookInfo = myLibrary[b];
+            //    cardDiv.textContent = cardInfo.info();
+                let bookT = document.createElement('p');
+                    bookT.textContent = bookInfo.title;
+                let bookA = document.createElement('p');
+                    bookA.textContent = bookInfo.author;
+                let bookP = document.createElement('p');
+                    bookP.textContent = bookInfo.pages;
+                let bookR = document.createElement('p');
+                    bookR.textContent = bookInfo.read;    
                console.log(cardDiv);
+               cardDiv.appendChild(bookT);
+               cardDiv.appendChild(bookA);
+               cardDiv.appendChild(bookP);
+               cardDiv.appendChild(bookR);
                const cardContainer = document.getElementById("cardContainer");
                cardContainer.appendChild(cardDiv);
 

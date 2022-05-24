@@ -9,10 +9,36 @@
     <title>Odin JS Library Project</title>
 </head>
 <body>
-    <div id="cardContainer">
-        <div id="cardHeader"> HERE'S THE BOOKS WHAT YOU HAVE NOW IN YOUSE LIBRARY</div>
+    <div id="container">
+        <div id="cardContainer">
+            <div id="cardHeader"> HERE'S THE BOOKS WHAT YOU HAVE NOW IN YOUSE LIBRARY</div>
 
+        </div>
+        <div id="newBookFormContainer">
+            <form action="">
+                <div id="titleDiv">
+                  <label for="title">TITLE</label>
+                  <input type="text" name="title" id="title">
+                  <span class="error"></span>
+                </div>
+                <div id="authorDiv">
+                  <label for="author">AUTHOR</label>
+                  <input type="text" name="author" id="author">
+                  <span class="error"></span>
+                </div>
+                <div id="pagesDiv">
+                  <label for="pages">Pages</label>
+                  <input type="number" name="pages" id="pages">
+                  <span class="error"></span>
+                </div>
+                <div id="readDiv">
+                  <label for="readOrNot">Have you read it?</label>
+                  <input type="checkbox" id="readOrNot" name="readOrNot">
+                  <span class="error"></span>
+                </div>
+                <button type="submit">Enter Book to Library!</button>
+        </form>
+        </div>
     </div>
-
 </body>
 </html>
