@@ -9,20 +9,26 @@ function Book(title, author, pages, read)  {
         return (`${title}` + '\r\n' +`${author}` + '\n\r' + `${pages}` + '\n' + `${read}`);
     }
 }
+
 function addBookToLibrary(t) {
     myLibrary.push(t)
-
 }
 
 function displayLibrary(myLibrary) {
+    
+    const cardArea = document.getElementById("cardArea");
+
+    while (cardArea.firstChild) {
+        cardArea.removeChild(cardArea.firstChild)
+
+    }
             for (let b = 0; b < myLibrary.length; b++) {
-                console.log(b);
-                console.log(myLibrary);
-                console.log(theHobbit.info())
+              
+                
                 let cardDiv = document.createElement('div');
                 cardDiv.classList.add('card');
                  let bookInfo = myLibrary[b];
-            //    cardDiv.textContent = cardInfo.info();
+           
                 let bookT = document.createElement('p');
                     bookT.textContent = bookInfo.title;
                 let bookA = document.createElement('p');
@@ -36,8 +42,8 @@ function displayLibrary(myLibrary) {
                cardDiv.appendChild(bookA);
                cardDiv.appendChild(bookP);
                cardDiv.appendChild(bookR);
-               const cardContainer = document.getElementById("cardContainer");
-               cardContainer.appendChild(cardDiv);
+               
+               cardArea.appendChild(cardDiv);
 
                 
             }
@@ -47,6 +53,31 @@ addBookToLibrary(theHobbit);
 const huckFinn = new Book('Huck Finn', 'Mark Twain', 500, 'read');
 addBookToLibrary(huckFinn);
 
+
+// console.log(myLibrary);
+// console.log(theHobbit.info())
+
+
+
+function createNewBook() {
+    let nTitle = document.getElementById('title').value;
+    let nAuthor = document.getElementById('author').value;
+    let nPages = document.getElementById('pages').value;
+    let nRead = function isRead() {
+         if (document.getElementById('readOrNot').value === 'read') {
+            let nRead = 'read';
+            return nRead;
+         } else {
+            let nRead = 'Not read yet';
+            return nRead;
+         }; 
+   };  
+    let newBook = new Book(nTitle, nAuthor, nPages, nRead())
+    addBookToLibrary(newBook);
+    console.log(newBook);
+    console.log(myLibrary);
+     displayLibrary(myLibrary);
+};    
 displayLibrary(myLibrary);
-console.log(myLibrary);
-console.log(theHobbit.info())
+// document.getElementById('newBookButton').addEventListener("onclick", createNewBook());
+// console.log(myLibrary);

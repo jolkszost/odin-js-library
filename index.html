@@ -12,32 +12,35 @@
     <div id="container">
         <div id="cardContainer">
             <div id="cardHeader"> HERE'S THE BOOKS WHAT YOU HAVE NOW IN YOUSE LIBRARY</div>
-
+            <div id="cardArea">
+                
+            </div>
         </div>
         <div id="newBookFormContainer">
             <form action="">
                 <div id="titleDiv">
                   <label for="title">TITLE</label>
-                  <input type="text" name="title" id="title">
+                  <input type="text" name="title" id="title" required>
                   <span class="error"></span>
                 </div>
                 <div id="authorDiv">
                   <label for="author">AUTHOR</label>
-                  <input type="text" name="author" id="author">
+                  <input type="text" name="author" id="author" required>
                   <span class="error"></span>
                 </div>
                 <div id="pagesDiv">
                   <label for="pages">Pages</label>
-                  <input type="number" name="pages" id="pages">
+                  <input type="number" name="pages" id="pages" required>
                   <span class="error"></span>
                 </div>
                 <div id="readDiv">
                   <label for="readOrNot">Have you read it?</label>
-                  <input type="checkbox" id="readOrNot" name="readOrNot">
+                  <input type="checkbox" id="readOrNot" name="readOrNot" value="read" >
                   <span class="error"></span>
                 </div>
-                <button type="submit">Enter Book to Library!</button>
+                <button type="button" onclick="createNewBook()">Enter Book to Library!</button>
         </form>
+        
         </div>
     </div>
 </body>

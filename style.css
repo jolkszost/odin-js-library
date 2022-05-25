@@ -14,13 +14,16 @@
     grid-template-rows: 200px;
     grid-template-areas: 
     "cardHead cardHead"
-    "card card";
+    "cardArea cardArea";
     grid-auto-rows: 200px;
 }
 
 #cardHeader {
     grid-area: cardHead;
     background-color: blanchedalmond;
+}
+#cardArea {
+    grid-area: cardArea;
 }
 
 .card {
