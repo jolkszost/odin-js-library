@@ -27,6 +27,7 @@ function displayLibrary(myLibrary) {
                 
                 let cardDiv = document.createElement('div');
                 cardDiv.classList.add('card');
+                cardDiv.setAttribute('id', `${b}`)
                  let bookInfo = myLibrary[b];
            
                 let bookT = document.createElement('p');
@@ -36,12 +37,17 @@ function displayLibrary(myLibrary) {
                 let bookP = document.createElement('p');
                     bookP.textContent = bookInfo.pages;
                 let bookR = document.createElement('p');
-                    bookR.textContent = bookInfo.read;    
+                    bookR.textContent = bookInfo.read;
+                let bookRemoveButton = document.createElement("button");
+                    bookRemoveButton.textContent = 'Remove from library';
+                    bookRemoveButton.setAttribute('id', `${b}`)
+                    bookRemoveButton.setAttribute('onclick', 'removeBook(this)')       
                console.log(cardDiv);
                cardDiv.appendChild(bookT);
                cardDiv.appendChild(bookA);
                cardDiv.appendChild(bookP);
                cardDiv.appendChild(bookR);
+               cardDiv.appendChild(bookRemoveButton);
                
                cardArea.appendChild(cardDiv);
 
@@ -77,7 +83,14 @@ function createNewBook() {
     console.log(newBook);
     console.log(myLibrary);
      displayLibrary(myLibrary);
-};    
+};   
+function removeBook(removedBook) {
+    removedBook.parentNode.remove();
+    removedBookID = Number(removedBook.id);
+    myLibrary.splice(removedBookID, 1);
+    console.log(myLibrary);
+} 
+
 displayLibrary(myLibrary);
 // document.getElementById('newBookButton').addEventListener("onclick", createNewBook());
 // console.log(myLibrary);
