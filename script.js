@@ -40,23 +40,31 @@ function displayLibrary(myLibrary) {
                     bookR.textContent = bookInfo.read;
                 let bookRemoveButton = document.createElement("button");
                     bookRemoveButton.textContent = 'Remove from library';
+                    bookRemoveButton.classList.add('bookRemove');
                     bookRemoveButton.setAttribute('id', `${b}`)
                     bookRemoveButton.setAttribute('onclick', 'removeBook(this)')       
+                let bookReadButton = document.createElement('button');
+                    bookReadButton.textContent = 'Change to read/not read yet';
+                    bookReadButton.classList.add('changeRead');
+                    bookReadButton.setAttribute('id', `${b}`);
+                    bookReadButton.setAttribute('onclick', 'changeReadStatus(this)')
+
                console.log(cardDiv);
                cardDiv.appendChild(bookT);
                cardDiv.appendChild(bookA);
                cardDiv.appendChild(bookP);
                cardDiv.appendChild(bookR);
                cardDiv.appendChild(bookRemoveButton);
+               cardDiv.appendChild(bookReadButton);
                
                cardArea.appendChild(cardDiv);
 
                 
             }
 }
-const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 295, 'not read yet');
+const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 295, 'Not read yet');
 addBookToLibrary(theHobbit);
-const huckFinn = new Book('Huck Finn', 'Mark Twain', 500, 'read');
+const huckFinn = new Book('Huck Finn', 'Mark Twain', 500, 'Read');
 addBookToLibrary(huckFinn);
 
 
@@ -70,8 +78,8 @@ function createNewBook() {
     let nAuthor = document.getElementById('author').value;
     let nPages = document.getElementById('pages').value;
     let nRead = function isRead() {
-         if (document.getElementById('readOrNot').value === 'read') {
-            let nRead = 'read';
+         if (document.getElementById('readOrNot').checked) {
+            let nRead = 'Read';
             return nRead;
          } else {
             let nRead = 'Not read yet';
@@ -89,7 +97,23 @@ function removeBook(removedBook) {
     removedBookID = Number(removedBook.id);
     myLibrary.splice(removedBookID, 1);
     console.log(myLibrary);
+    displayLibrary(myLibrary);
 } 
+
+function changeReadStatus(changedRead) {
+       changedReadID = Number(changedRead.id);
+       bookToChange = myLibrary[changedReadID];
+       if (bookToChange.read === 'Read') {
+           delete bookToChange.read;
+           bookToChange.read = 'Not read yet';
+           displayLibrary(myLibrary);
+       } else {
+       
+       delete bookToChange.read;
+       bookToChange.read = 'Read';
+       displayLibrary(myLibrary)
+       }
+}
 
 displayLibrary(myLibrary);
 // document.getElementById('newBookButton').addEventListener("onclick", createNewBook());
