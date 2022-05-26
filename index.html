@@ -11,13 +11,16 @@
 <body>
     <div id="container">
         <div id="cardContainer">
-            <div id="cardHeader"> HERE'S THE BOOKS WHAT YOU HAVE NOW IN YOUSE LIBRARY</div>
+            <div id="cardHeader">
+                 <p id="headerP">HERE'S THE BOOKS WHAT YOU HAVE NOW IN YOUSE LIBRARY</p>
+            </div>
             <div id="cardArea">
-                
+
             </div>
         </div>
         <div id="newBookFormContainer">
             <form action="">
+                <button type="button" onclick="createNewBook()" id="newBookBtn">Enter Book to Library!</button>
                 <div id="titleDiv">
                   <label for="title">TITLE</label>
                   <input type="text" name="title" id="title" required>
@@ -34,11 +37,11 @@
                   <span class="error"></span>
                 </div>
                 <div id="readDiv">
-                  <label for="readOrNot">Have you read it?</label>
+                  <label for="readOrNot">I've read it!</label>
                   <input type="checkbox" id="readOrNot" name="readOrNot" value="read" >
                   <span class="error"></span>
                 </div>
-                <button type="button" onclick="createNewBook()">Enter Book to Library!</button>
+                
         </form>
         
         </div>

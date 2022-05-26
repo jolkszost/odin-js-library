@@ -1,12 +1,19 @@
+* {
+    /* outline: 1px solid black; */
+    
+}
 #container {
+    background-color: azure;
     display: grid;
     grid-template-columns: 30fr 15fr;
     grid-template-areas: 
     "cardCont formCont";
 }
 #cardContainer {
-    height: 800px;
-    width: 800px;
+    min-height: 800px;
+    max-height: fit-content;
+    width: 1000px;
+   padding-left: 200px;
     background-color: rgba(37, 37, 231, 0.671);
     grid-area: cardCont;
     display: grid;
@@ -19,44 +26,130 @@
 }
 
 #cardHeader {
+    justify-items: center;
+    align-items: center;
+    font-size: xxx-large;
     grid-area: cardHead;
     background-color: blanchedalmond;
 }
+
+#headerP {
+    padding: 1rem;
+}
 #cardArea {
+    height: fit-content;
+    justify-items: center;
+    background-color: blueviolet;
     grid-area: cardArea;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    
+
 }
 
 .card {
     background-color: aliceblue;
+    height: 200px;
+    width: 200px;
+    padding: 1rem;
+    border: 4px solid gold;
+    
 }
 
-#cardFormContainer {
+#newBookFormContainer {
+   
+   /* outline: 3px solid red; */
     grid-area: formCont;
+    background-color: brown;
+    display: flex;
+    justify-content: center;
+    padding-left: 30px;
+    
+    
    
 }
 
+
 form {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: 
-    "title author"
-    "pages read";
+
+   padding: 2rem;
+    padding-top: 1rem;
+    
+    position: fixed;
+   
+    /* outline: 2px solid blue; */
 
 
+}
+
+form > div {
+    height: 150px;
+    width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
 }
 
 #titleDiv {
     grid-area: title;
+    height: 250px;
+    width: 400px;
+    font-size: 80px;
+    margin-top: 20px;
 }
 
 #authorDiv {
     grid-area: author;
+    font-size:65px;
+
 }
 
 #pagesDiv {
     grid-area: pages;
+    font-size: 30px;
 }
 
 #readDiv {
     grid-area: read;
+    font-size: 30px;
+}
+
+#newBookBtn {
+    height: 50px;
+    width: 400px;
+    font-size: larger;
+    
+}
+
+#title {
+
+    border-radius: 5px;
+    width: 250px;
+    height: 60px;
+    font-size: 22px;
+    text-align: center;
+    
+}
+
+#author {
+
+    border-radius: 5px;
+    width: 200px;
+    height: 30px;
+    font-size: 18px;
+    text-align: center;
+
+}
+
+#pages {
+
+    border-radius: 5px;
+    width: 40px;
+    text-align: center;
+}
+
+#readOrNot {
+    height: 30px;
+    widows: 30px;
 }

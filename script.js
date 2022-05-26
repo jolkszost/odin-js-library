@@ -68,11 +68,6 @@ const huckFinn = new Book('Huck Finn', 'Mark Twain', 500, 'Read');
 addBookToLibrary(huckFinn);
 
 
-// console.log(myLibrary);
-// console.log(theHobbit.info())
-
-
-
 function createNewBook() {
     let nTitle = document.getElementById('title').value;
     let nAuthor = document.getElementById('author').value;
@@ -116,5 +111,3 @@ function changeReadStatus(changedRead) {
 }
 
 displayLibrary(myLibrary);
-// document.getElementById('newBookButton').addEventListener("onclick", createNewBook());
-// console.log(myLibrary);
