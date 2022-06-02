@@ -1,20 +1,50 @@
 let myLibrary = [];
 
-function Book(title, author, pages, read)  {
-    this.title = title
-    this.author = `by ${author}`
-    this.pages = `${pages} pages`
-    this.read = read
-   this.info = function() {
-        return (`${title}` + '\r\n' +`${author}` + '\n\r' + `${pages}` + '\n' + `${read}`);
-    }
+class Book {
+    constructor(title, author, pages, read)  {
+    this.title = title;
+    this.author = `by ${author}`;
+    this.pages = `${pages} pages`;
+    this.read = read;
+};
+  info() {
+        return (`${this.title}` + '\r\n' +`${this.author}` + '\n\r' + `${this.pages}` + '\n' + `${this.read}`);
+    
+      
 }
 
+    
+};
+function createNewBook() {
+    let nTitle = document.getElementById('title').value;
+    let nAuthor = document.getElementById('author').value;
+    let nPages = document.getElementById('pages').value;
+    let nRead = function isRead() {
+         if (document.getElementById('readOrNot').checked) {
+            let nRead = 'Read';
+            return nRead;
+         } else {
+            let nRead = 'Not read yet';
+            return nRead;
+         }; 
+   };
+    let newBook = new Book(nTitle, nAuthor, nPages, nRead());
+   addBookToLibrary(newBook);
+ displayLibrary(myLibrary);
+   
+}
 function addBookToLibrary(t) {
-    myLibrary.push(t)
+   return myLibrary.push(t)
 }
 
-function displayLibrary(myLibrary) {
+function removeBook(removedBook) {
+    removedBook.parentNode.remove();
+    removedBookID = Number(removedBook.id);
+    myLibrary.splice(removedBookID, 1);
+    console.log(myLibrary);
+    displayLibrary(myLibrary);
+}
+ function displayLibrary(myLibrary) {
     
     const cardArea = document.getElementById("cardArea");
 
@@ -62,38 +92,15 @@ function displayLibrary(myLibrary) {
                 
             }
 }
+
+
 const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 295, 'Not read yet');
 addBookToLibrary(theHobbit);
 const huckFinn = new Book('Huck Finn', 'Mark Twain', 500, 'Read');
 addBookToLibrary(huckFinn);
 
 
-function createNewBook() {
-    let nTitle = document.getElementById('title').value;
-    let nAuthor = document.getElementById('author').value;
-    let nPages = document.getElementById('pages').value;
-    let nRead = function isRead() {
-         if (document.getElementById('readOrNot').checked) {
-            let nRead = 'Read';
-            return nRead;
-         } else {
-            let nRead = 'Not read yet';
-            return nRead;
-         }; 
-   };  
-    let newBook = new Book(nTitle, nAuthor, nPages, nRead())
-    addBookToLibrary(newBook);
-    console.log(newBook);
-    console.log(myLibrary);
-     displayLibrary(myLibrary);
-};   
-function removeBook(removedBook) {
-    removedBook.parentNode.remove();
-    removedBookID = Number(removedBook.id);
-    myLibrary.splice(removedBookID, 1);
-    console.log(myLibrary);
-    displayLibrary(myLibrary);
-} 
+
 
 function changeReadStatus(changedRead) {
        changedReadID = Number(changedRead.id);
